@@ -33,8 +33,7 @@ ReactDom.render(
       <p>Today is the {date1.toLocaleDateString()}</p>
       <p>Today is the {new Date().toLocaleDateString()}</p>
       <p>Today is the {new Date().toLocaleTimeString()}</p>
-      <h3>Evaluate {2+3}</h3>
-      <h3>Masic Number is {Math.random()}</h3>
+      
 
      /*Gallery Card Filter*/
      <h3 className="GalleryText">Our Services</h3>
