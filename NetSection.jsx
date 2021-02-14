@@ -2,6 +2,7 @@ import NetflixCard from './NetflixCard';
  
  function NetSection()
   {
+   // JSX Elements
       return(
         <div className="container"> 
         <div className="row ">
