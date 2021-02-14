@@ -1,8 +1,7 @@
-import React from 'react';
- 
+import React from "react";
 
 function Paragraph(){
-    return (<h1>Digital clock</h1>) ;
+    return (<p>I will list here some netflix movie</p>);
 }
 
-export default Paragraph; 
+export default Paragraph;
