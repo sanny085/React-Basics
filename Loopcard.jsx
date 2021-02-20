@@ -1,4 +1,4 @@
-import NetflixCard from './NetflixCard';
+ import NetflixCard from './NetflixCard';
 import Moviecollect from './Moviecollect';
  
 const ncard =(val,i)=>{
