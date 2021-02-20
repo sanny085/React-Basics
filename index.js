@@ -1,60 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDom from 'react-dom';
 import './index.css';
-import Paragraph from './Paragraph';
- 
-// 2020,9,4,4 date formate
+import App from './App';
 
-var time1 = new Date();                                    
-time1 = time1.getHours();
- let wish = ' ';
- const colorText = { };
- 
 
- if(time1>=1 && time1<12){
-     wish = 'Good Morning';
-     colorText.color = "#FFE577";
-    
-}
-   else if(time1>=12 && time1<17){
-     wish = 'Good Afternoon';
-     colorText.color = "white";
-   }
-  else if(time1>=17 && time1<19){
-     wish = 'Good Evening';
-     colorText.color = "#C3727C";
-   }
-  else{
-     wish = 'Good Night';
-     colorText.color = "#FFA54C";
-  }
 
- 
-const tick = ()=> {
-  let element =(
-      <>
-        {new Date().toLocaleTimeString()} 
-      </>
-    );
+
+ReactDom.render(
+   <>
+   <App/>
+   <br/><br/>
+   {/*Creating attribute of Component (Component Property)*/}
   
-
-ReactDOM.render(
-  <React.Fragment>
-     <center> <Paragraph/> </center>
-    <div className="container">
-    
-      <div className="containerBody" >
-       
-        <h1 style={colorText}>{element}</h1>
-          <h2 className="h2margin">
-            <span style={colorText}>{wish}</span>,
-            <span className="helloText"> Hello Sanny</span>
-          </h2>
-       </div>
-    </div>
-  </React.Fragment>,
-  document.getElementById('root')
+    </>,document.getElementById("root")
 );
-}
+ 
 
-setInterval(tick, 1000);
+{/* //   var htmlData = `<div class="operation">
+//   <button  class="pBell border-0 bg-none" style="float-left" > <i class="fas fa-bell pBell1"></i></button>
+ 
+// <div style="float: right">
+//   <button class="edit border-0 bg-none" > <i class="fas fa-edit edit1"></i></button>
+//   <button class="delete border-0 bg-none" > <i class="fas fa-trash-alt trash1"></i></button>
+// </div>
+// </div>
+// <div class="main   "></div>
+// <textarea class=" form-control" rows="15" cols="5" name="" id=""  ></textarea>
+// `; */}
+
+
+// var section = document.createElement('div');
+// section.innerHTML = htmlData;
+// document.getElementById("root").appendChild(section); 
