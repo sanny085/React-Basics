@@ -18,7 +18,6 @@ function NetflixCard(props){
     </div>
   </div>
          
-    
     );
     
    }
