@@ -4728,5 +4728,5 @@
      
 ];
 
- 
+
 export default Moviecollect;
