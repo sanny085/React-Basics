@@ -27,22 +27,30 @@ const GalleryText = {
   fontSize:'3rem'
 };    
 
- 
-
-
-
-
 
 {/*Master Page*/}
 const App = () => {
    
   const [age, setAge] = useState(0);
 
-  const ondata  = (<NetSection/>);
+  const [ondata, otherDatag]  = useState(20);
 
-  const watch = () => {
-    console.log("clicked");
-    };
+  const color = 'red';
+  //React Hooks state ckanging
+  const [clr, setClr]  = useState(color);
+  
+  const plus = ()=>{
+    let color1 = '#242B2E';
+    setClr(color1);
+    otherDatag(ondata+5);
+  }
+
+  const minus = ()=>{
+    otherDatag(ondata-5);
+    let color2 = 'green';
+    setClr(color2);
+  }
+  
 
   return (
     <React.Fragment>
@@ -88,7 +96,7 @@ const App = () => {
 
      {/*Gallery Card Filter*/}
      <h3 style={GalleryText}>Our Services</h3>
-      <div className="container1">
+      <div className="container1" style={{backgroundColor : clr}}>
           <a href="http://aictech.co.in/" target="_blank">
             <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
           </a>
@@ -99,17 +107,20 @@ const App = () => {
    <br/>   <br/>   <br/>   <br/>
    <h3 style={GalleryText}>Best Collection</h3>
 
-<div className="container-fluid">
+<div className="container-fluid" >
 
-    <button type="button" className="btn btn-dark mx-3" onClick={ondata}>Amazon Prime Video</button>
-    <button type="button" className="btn btn-dark mx-3" onClick={<NetSection/>} >Netflix</button>
-   
+    <button type="button" className="btn btn-dark mx-3" onClick={() => plus()}>++</button>
+    <button type="button" className="btn btn-dark mx-3" onClick={() => minus()}>--</button>
+   {ondata}
+
+   <NetSection/>
+
 </div>
-  
-   {watch} 
+    
    </React.Fragment>
   );
 }
 
 export default App;
  
+  
