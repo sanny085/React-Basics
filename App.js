@@ -105,21 +105,25 @@ const App = () => {
         <img className="img1 border border-secondary border-2" src={img4} title="check Image" alt="Background Image"/>
       </div>
    <br/>   <br/>   <br/>   <br/>
+   
 
  <div className="container-fluid">
   <div className="container">
+    
     <form>
-      <input type="text" name="name"/>
+      
+        <input type="text" name="name"/>
+      
       <input type="submit" value="Submit" />
     </form>
- </div>
+  
+  </div>
  </div>
 
  <br/>   <br/>
-
-<h3 style={GalleryText}>Best Collection</h3>
+ <h3 style={GalleryText}>Best Collection</h3>
 <div className="container-fluid" >
-
+   
     <button type="button" className="btn btn-dark mx-3" onClick={() => plus()}>++</button>
     <button type="button" className="btn btn-dark mx-3" onClick={() => minus()}>--</button>
    {ondata}
