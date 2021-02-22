@@ -5,6 +5,7 @@ import {add, sub, mul, divid} from './Calculator';
 import NetSection from './NetSection';
 import { useState } from 'react';
 
+
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -25,7 +26,6 @@ const GalleryText = {
   fontFamily: "'IBM Plex Sans', sans-serif",
   fontSize:'3rem'
 };    
-
 
 {/*Master Page*/}
 const App = () => {
