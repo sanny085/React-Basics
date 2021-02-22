@@ -94,6 +94,7 @@ const App = () => {
 
      {/*Gallery Card Filter*/}
      <h3 style={GalleryText}>Our Services</h3>
+      {/*changed state*/}
       <div className="container1" style={{backgroundColor : clr}}>
           <a href="http://aictech.co.in/" target="_blank">
             <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
