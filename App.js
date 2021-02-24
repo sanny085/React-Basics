@@ -13,7 +13,6 @@ const img1 = "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixid=
 const img2 = "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80";
 const img3 = "https://images.unsplash.com/photo-1598970434795-0c54fe7c0648?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80";
 const img4 = "https://images.unsplash.com/photo-1586959244058-3cb7557afc7f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80";
-
 /*css in Object Form (Cabab Case)*/
 const GalleryText = {
   color:'rgb(224, 62, 116)',
@@ -63,8 +62,6 @@ const App = () => {
      </div>
        
       
-
-
 
    <h1>Netflix Clone</h1>
    
