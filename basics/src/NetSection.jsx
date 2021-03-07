@@ -1,4 +1,4 @@
-import Loopcard from './Loopcard';
+import {Loopcard} from './Loopcard';
 
 
  function NetSection()
