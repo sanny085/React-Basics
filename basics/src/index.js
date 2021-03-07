@@ -6,11 +6,10 @@ import App from './App';
  
 ReactDom.render(
    <>
-   <App/>
+     <App/>
    <br/><br/>
    {/*Creating attribute of Component (Component Property)*/}
-  
-    </>,document.getElementById("root")
+   </>,document.getElementById("root")
 );
  
 
