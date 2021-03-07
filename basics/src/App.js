@@ -4,7 +4,7 @@ import Paragraph from './Paragraph';
 import {add, sub, mul, divid} from './Calculator';
 import NetSection from './NetSection';
 import { useState } from 'react';
-
+import Amazon from './Amazon';
 
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
@@ -26,18 +26,32 @@ const GalleryText = {
   fontFamily: "'IBM Plex Sans', sans-serif",
   fontSize:'3rem'
 };    
+var AnoGallery = {
+  color:'rgb(224, 162, 116)',
+  textAlign:'center',
+  textTransform:'uppercase',
+  fontWeight:'bold',
+  margin:'20px 0px',
+  textShadow:'0px 2px 4px #ffe9c5',
+  fontFamily: "'IBM Plex Sans', sans-serif",
+  fontSize:'3rem'
+};  
+
 
 {/*Master Page*/}
 const App = () => {
-   
+  
   const [age, setAge] = useState(0);
-
   const [ondata, otherDatag]  = useState(20);
-
+  
   const color = 'red';
   //React Hooks state ckanging
   const [clr, setClr]  = useState(color);
   
+  // For Both card Amazon and Netflix
+  const [visible1, setVisible1]= useState(false);
+  const [visible2, setVisible2]= useState(false);
+
   const plus = ()=>{
     let color1 = '#242B2E';
     setClr(color1);
@@ -50,17 +64,31 @@ const App = () => {
     setClr(color2);
   }
   
+  const sayHello = () => {
+    document.getElementById('btPar').innerHTML = "Hello Developer";
+  }
+
+  const amazonFun = () => { 
+    setVisible1(true);
+    setVisible2 (false);
+  }
+ 
+  const netflixFun = () => { 
+    setVisible1(false);
+    setVisible2 (true);
+    const = 
+ }
 
   return (
     <React.Fragment>
 
      <div className="card mx-auto  mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
-     <div className="card-body">
-        <h4 className="card-title text-center text-muted p-4">  {age}  </h4>
-        <button className="btn btn-warning d-block mx-auto   " onClick={() => setAge(age + 1)}>
-          Click me
-        </button>
-       </div>
+        <div className="card-body">
+            <h4 className="card-title text-center text-muted p-4"> {age} </h4>
+              <button className="btn btn-warning d-block mx-auto   " onClick={() => setAge(age + 1)}>
+                Click me
+              </button>
+        </div>
      </div>
        
       
@@ -73,15 +101,12 @@ const App = () => {
     <Orderlist/>
     <Paragraph/>
 
-       
-          <ul>
+         <ul>
             <li>Addition of two number is : {add(6,5)}</li>
             <li>Subtraction of two number is : {sub(34,5)}</li>
             <li>Multiplication of two number is : {mul(3,5)}</li>
             <li>Division of two number is : {divid(20,5)}</li>
           </ul>
-      
-
      {/*h3 is JSX Elements inside App function */} 
     {/*Multiple JSX Elements inside App function */} 
       {/*inside {} everything is javascript */}
@@ -95,6 +120,9 @@ const App = () => {
 
      {/*Gallery Card Filter*/}
      <h3 style={GalleryText}>Our Services</h3>
+     
+    {/*<h3 className={`  ${AnoGallery}`}>Another Services</h3>*/}
+
       <div className="container1" style={{backgroundColor : clr}}>
           <a href="http://aictech.co.in/" target="_blank">
             <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
@@ -123,12 +151,22 @@ const App = () => {
  <h3 style={GalleryText}>Best Collection</h3>
 <div className="container-fluid" >
    
-    <button type="button" className="btn btn-dark mx-3" onClick={() => plus()}>++</button>
-    <button type="button" className="btn btn-dark mx-3" onClick={() => minus()}>--</button>
+    <button type="button" className="btn btn-dark mx-3" onClick={()=>plus()}>++</button>
+    <button type="button" className="btn btn-dark mx-3" onClick={()=>minus()}>--</button>
    {ondata}
+     
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Amazon Series</button>
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series</button>
 
-   <NetSection/>
+    <button onClick={sayHello}>Click me!</button> 
+    <p id="btPar">Hello India</p>  
 
+    <>  
+      {window.onload = ()=>amazonFun()}
+      {visible1 ? <Amazon/>  : ""}
+      {visible2 ?  <NetSection/> : ""}
+    </>
+    
 </div>
     
    </React.Fragment>
