@@ -3,8 +3,12 @@ import Orderlist from './Orderlist';
 import Paragraph from './Paragraph';
 import {add, sub, mul, divid} from './Calculator';
 import NetSection from './NetSection';
-import { useState } from 'react';
+import {useState} from 'react';
 import Amazon from './Amazon';
+import TopCollectMovie from './TopCollectMovie';
+import ActionMovie from './ActionMovie';
+
+
 
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
@@ -51,37 +55,58 @@ const App = () => {
   // For Both card Amazon and Netflix
   const [visible1, setVisible1]= useState(false);
   const [visible2, setVisible2]= useState(false);
+// Top movie state 
+  const [topm, setTopm]= useState(false);
+//Action movie
+const[action,setAction] = useState(false);
 
-  const plus = ()=>{
+
+const plus = ()=>{
     let color1 = '#242B2E';
     setClr(color1);
     otherDatag(ondata+5);
   }
-
-  const minus = ()=>{
+const minus = ()=>{
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
   }
   
-  const sayHello = () => {
+const sayHello = () => {
     document.getElementById('btPar').innerHTML = "Hello Developer";
-  }
+}
 
-  const amazonFun = () => { 
+const amazonFun = () => { 
     setVisible1(true);
     setVisible2 (false);
-  }
- 
-  const netflixFun = () => { 
+    setTopm(false);
+    setAction(false);
+}
+const netflixFun = () => { 
     setVisible1(false);
     setVisible2 (true);
-    const = 
- }
+    setTopm(false);
+    setAction(false);
+} 
+const topCollec = ()=> {
+  console.log("This is Sanny");
+  setTopm(true);
+  setVisible1(false);
+    setVisible2 (false);
+    setAction(false);
+}
 
+const actionCollect = ()=> {
+  setAction(true);
+  setVisible1(false);
+  setVisible2 (false);
+  setTopm(false);
+}
+
+ const a = "🔥🔥";
   return (
     <React.Fragment>
-
+   {a}
      <div className="card mx-auto  mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
         <div className="card-body">
             <h4 className="card-title text-center text-muted p-4"> {age} </h4>
@@ -156,7 +181,16 @@ const App = () => {
    {ondata}
      
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Amazon Series</button>
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series(All)</button>
+
+
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>topCollec()}>Top Collection</button>
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>actionCollect()}>Action</button>
+{/*<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Comedy & Drama</button>
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Science</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series</button>
+*/}
+
 
     <button onClick={sayHello}>Click me!</button> 
     <p id="btPar">Hello India</p>  
@@ -165,8 +199,10 @@ const App = () => {
       {window.onload = ()=>amazonFun()}
       {visible1 ? <Amazon/>  : ""}
       {visible2 ?  <NetSection/> : ""}
+      {topm ? <TopCollectMovie/> : ""}
+      {action ? <ActionMovie/> : ""}
     </>
-    
+     
 </div>
     
    </React.Fragment>
