@@ -18,7 +18,6 @@ const ncard = (val,i) => {
      </div> 
    );
 }
-
 function Loopcard(){
     // calling ncard function
     // map method comes with key value
@@ -65,8 +64,6 @@ const topmov = (val, i)=>{
        </div> 
        );
    }
-   
-   
 } 
 const Topmovie = ()=>{
    return  Moviecollect.map(topmov);  
