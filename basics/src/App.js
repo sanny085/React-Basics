@@ -7,7 +7,7 @@ import {useState} from 'react';
 import Amazon from './Amazon';
 import TopCollectMovie from './TopCollectMovie';
 import ActionMovie from './ActionMovie';
-
+import ComedyMovie from './ComedyMovie';
 
 
 const fName = "Raja";
@@ -52,14 +52,15 @@ const App = () => {
   //React Hooks state ckanging
   const [clr, setClr]  = useState(color);
   
-  // For Both card Amazon and Netflix
-  const [visible1, setVisible1]= useState(false);
-  const [visible2, setVisible2]= useState(false);
+// For Both card Amazon and Netflix
+const [visible1, setVisible1]= useState(false);
+const [visible2, setVisible2]= useState(false);
 // Top movie state 
   const [topm, setTopm]= useState(false);
 //Action movie
 const[action,setAction] = useState(false);
-
+//comedy & Drama Movie
+const [comedy, setComedy] = useState(false);
 
 const plus = ()=>{
     let color1 = '#242B2E';
@@ -70,8 +71,7 @@ const minus = ()=>{
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
-  }
-  
+  }  
 const sayHello = () => {
     document.getElementById('btPar').innerHTML = "Hello Developer";
 }
@@ -81,23 +81,35 @@ const amazonFun = () => {
     setVisible2 (false);
     setTopm(false);
     setAction(false);
+    setComedy(false);
 }
 const netflixFun = () => { 
+    setVisible2 (true);  
     setVisible1(false);
-    setVisible2 (true);
     setTopm(false);
     setAction(false);
+    setComedy(false);
 } 
 const topCollec = ()=> {
   console.log("This is Sanny");
   setTopm(true);
   setVisible1(false);
-    setVisible2 (false);
-    setAction(false);
+  setVisible2 (false);
+  setAction(false);
+  setComedy(false);
 }
 
 const actionCollect = ()=> {
   setAction(true);
+  setVisible1(false);
+  setVisible2 (false);
+  setTopm(false);
+  setComedy(false);
+}
+
+const comedyCollect = ()=>{
+  setComedy(true);
+  setAction(false);
   setVisible1(false);
   setVisible2 (false);
   setTopm(false);
@@ -116,10 +128,6 @@ const actionCollect = ()=> {
         </div>
      </div>
        
-      
-
-
-
    <h1>Netflix Clone</h1>
    
     {/*component creation*/} 
@@ -148,37 +156,47 @@ const actionCollect = ()=> {
      
     {/*<h3 className={`  ${AnoGallery}`}>Another Services</h3>*/}
 
-      <div className="container1" style={{backgroundColor : clr}}>
-          <a href="http://aictech.co.in/" target="_blank">
-            <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
-          </a>
-        <img className="img1 border border-secondary border-2" src={img2} title="check Image" alt="Background Image"/>
-        <img className="img1 border border-secondary border-2" src={img3} title="check Image" alt="Background Image"/>
-        <img className="img1 border border-secondary border-2" src={img4} title="check Image" alt="Background Image"/>
-      </div>
-   <br/>   <br/>   <br/>   <br/>
+  <div className="container1" style={{backgroundColor : clr}}>
+      <a href="http://aictech.co.in/" target="_blank">
+        <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
+      </a>
+      <img className="img1 border border-secondary border-2" src={img2} title="check Image" alt="Background Image"/>
+      <img className="img1 border border-secondary border-2" src={img3} title="check Image" alt="Background Image"/>
+      <img className="img1 border border-secondary border-2" src={img4} title="check Image" alt="Background Image"/>
+  </div>
+   <br/>  
+<center>
+  <h5 class="text-info">Click to Change Background Color</h5>
+    <button type="button" className="btn btn-dark mx-3" onClick={()=>plus()}>++</button>
+    <button type="button" className="btn btn-dark mx-3" onClick={()=>minus()}>--</button>
+    {ondata}
    
+</center> 
+<br/><br/><br/>
+
 
  <div className="container-fluid">
   <div className="container">
-    
-    <form>
-      
-        <input type="text" name="name"/>
-      
-      <input type="submit" value="Submit" />
-    </form>
-  
+       <form>
+          <input type="text" name="name"/>
+          <input type="submit" value="Submit" />
+       </form>
   </div>
  </div>
 
- <br/>   <br/>
- <h3 style={GalleryText}>Best Collection</h3>
-<div className="container-fluid" >
+
+ <br/>  
+  <center>
+      <button onClick={sayHello}>Click me!</button> 
+      <p id="btPar">Hello India</p>  
+  </center>
+  <br/>
+
+
+<h3 style={GalleryText}>Best Collection</h3>
+<div className="container-fluid">
    
-    <button type="button" className="btn btn-dark mx-3" onClick={()=>plus()}>++</button>
-    <button type="button" className="btn btn-dark mx-3" onClick={()=>minus()}>--</button>
-   {ondata}
+  
      
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Amazon Series</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series(All)</button>
@@ -186,21 +204,23 @@ const actionCollect = ()=> {
 
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>topCollec()}>Top Collection</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>actionCollect()}>Action</button>
-{/*<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Comedy & Drama</button>
-<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Science</button>
+<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>comedyCollect()}>Comedy & Drama</button>
+{/*<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Science</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series</button>
 */}
 
 
-    <button onClick={sayHello}>Click me!</button> 
-    <p id="btPar">Hello India</p>  
 
-    <>  
+    <> 
+    <br/> 
+    <p class="float-right text-dark">Total{}</p>
+    <br/> 
       {window.onload = ()=>amazonFun()}
       {visible1 ? <Amazon/>  : ""}
       {visible2 ?  <NetSection/> : ""}
       {topm ? <TopCollectMovie/> : ""}
       {action ? <ActionMovie/> : ""}
+      {comedy ? <ComedyMovie/> : ""}
     </>
      
 </div>
