@@ -1,3 +1,4 @@
+import React from 'react'
 import {ComedyMov} from './Loopcard';
 
 const ComedyMovie =()=> {
