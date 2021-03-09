@@ -61,8 +61,7 @@ const topmov = (val, i)=>{
                link={val.link}
                movrat={val.imdbRating}
           />
-       </div> 
-       );
+       </div>);
    }
 } 
 const Topmovie = ()=>{
@@ -74,8 +73,8 @@ const Actmovie =()=>{
    return Moviecollect.map( (val,i)=>{
       if((val.genres[0] == 'Action') ||(val.genres[1] == 'Action') )
       {
-       return(
-          <div className="mb-3 col-md-3 col-sm-6 col-lg-3"  >
+      return(
+         <div className="mb-3 col-md-3 col-sm-6 col-lg-3"  >
            <NetflixCard 
                 key={i}
                 imgSrc={val.posterurl} 
@@ -85,7 +84,7 @@ const Actmovie =()=>{
                 movtype3={val.genres[2]} 
                 link={val.link}
                 movrat={val.imdbRating}
-           />
+           /> 
         </div> 
         );
  
@@ -95,5 +94,31 @@ const Actmovie =()=>{
 }
 
 
-export {Loopcard, AmazLoop, Topmovie, Actmovie};
+// Comedy Movie Component
+const ComedyMov =()=>{
+   return Moviecollect.map( (val,i)=>{
+      if((val.genres[0] == 'Comedy') ||(val.genres[1] == 'Comedy') )
+      {
+      return(
+         <div className="mb-3 col-md-3 col-sm-6 col-lg-3"  >
+           <NetflixCard 
+                key={i}
+                imgSrc={val.posterurl} 
+                title={val.title} 
+                movtype1={val.genres[0]} 
+                movtype2={val.genres[1]} 
+                movtype3={val.genres[2]} 
+                link={val.link}
+                movrat={val.imdbRating}
+           /> 
+        </div> 
+        );
+ 
+    }
+ })
+
+}
+
+
+export {Loopcard, AmazLoop, Topmovie, Actmovie, ComedyMov};
  
