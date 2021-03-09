@@ -65,38 +65,37 @@ const[action,setAction] = useState(false);
 const [comedy, setComedy] = useState(false);
 
 // For Form user input
-const [name, setName]= useState('');
-const [subm, setSub]= useState('');
-
+const [name1, setName1] = useState('');
+const [name2, setName2] = useState('');
+const [subm, setSub] = useState('');
 
 const plus = ()=>{
     let color1 = '#242B2E';
     setClr(color1);
     otherDatag(ondata+5);
-  }
+};
 const minus = ()=>{
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
-  }  
+};  
 const sayHello = () => {
     document.getElementById('btPar').innerHTML = "Hello Developer";
-}
-
+};
 const amazonFun = () => { 
     setVisible1(true);
     setVisible2 (false);
     setTopm(false);
     setAction(false);
     setComedy(false);
-}
+};
 const netflixFun = () => { 
     setVisible2 (true);  
     setVisible1(false);
     setTopm(false);
     setAction(false);
     setComedy(false);
-} 
+};
 const topCollec = ()=> {
   console.log("This is Sanny");
   setTopm(true);
@@ -104,32 +103,35 @@ const topCollec = ()=> {
   setVisible2 (false);
   setAction(false);
   setComedy(false);
-}
-
+};
 const actionCollect = ()=> {
   setAction(true);
   setVisible1(false);
   setVisible2 (false);
   setTopm(false);
   setComedy(false);
-}
-
+};
 const comedyCollect = ()=>{
   setComedy(true);
   setAction(false);
   setVisible1(false);
   setVisible2 (false);
   setTopm(false);
-}
+};
 
-//Taking Event From Input
-const inpuFun = (e) =>{
-  e.preventDefault();
-  setName(e.target.value);
-}
-const submitData = ()=>{
-  setSub(name);
-}
+//When Call any Event it return pass >>>>OBJECT<<<< (like:- event)
+const inpuFun1 = (event) =>{
+  setName1(event.target.value);
+};
+const inpuFun2 = (event) =>{
+  setName2(event.target.value);
+};
+const submitData = (event) =>{
+  //event.prevent will not refresh page before submit form 
+  event.preventDefault();
+  setSub(name1+' '+name2);
+};
+
 
  const a = "🔥🔥";
   return (
@@ -138,7 +140,7 @@ const submitData = ()=>{
      <div className="card mx-auto  mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
         <div className="card-body">
             <h4 className="card-title text-center text-muted p-4"> {age} </h4>
-              <button className="btn btn-warning d-block mx-auto   " onClick={() => setAge(age + 1)}>
+              <button className="btn btn-warning d-block mx-auto" onClick={ () => setAge(age + 1) }>
                 Click me
               </button>
         </div>
@@ -150,7 +152,7 @@ const submitData = ()=>{
     <Orderlist/>
     <Paragraph/>
 
-         <ul>
+          <ul>
             <li>Addition of two number is : {add(6,5)}</li>
             <li>Subtraction of two number is : {sub(34,5)}</li>
             <li>Multiplication of two number is : {mul(3,5)}</li>
@@ -191,22 +193,23 @@ const submitData = ()=>{
 <br/><br/><br/><br/><br/><br/> 
 
 
- <div className="container-fluid">
-    <div className="container ">
-         <p class="text-center"><h4>{subm}</h4></p>
-        <div class="d-flex justify-content-center">
-         <form onSubmit={submitData}>
-          {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
-          <input type="text" name="name"  placeholder="Enter your name" onChange={inpuFun} value={name} />
-          <button type="button">Submit</button>
-
+<div className="container-fluid">
+    <div className="container">
+      <p class="text-center text-dark"><h4>{subm}</h4></p>
+       <div class="d-flex justify-content-center">
+          <form onSubmit={submitData}> 
+            {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
+            <input type="text"  placeholder="First Name" onChange={inpuFun1} value={name1}/>
+            <input type="text"  placeholder="Last Name" onChange={inpuFun2} value={name2}/>
+            <br/>
+            <button type="submit">Submit</button>
           </form>
         </div>
     </div>
- </div>
+</div>
+<br/><br/><br/>  
 
 
- <br/>   <br/>   <br/>  
   <center>
       <button onClick={sayHello}>Click me!</button> 
       <p id="btPar">Hello India</p>  
