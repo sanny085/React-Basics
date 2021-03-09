@@ -9,7 +9,6 @@ import TopCollectMovie from './TopCollectMovie';
 import ActionMovie from './ActionMovie';
 import ComedyMovie from './ComedyMovie';
 
-
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -55,12 +54,20 @@ const App = () => {
 // For Both card Amazon and Netflix
 const [visible1, setVisible1]= useState(false);
 const [visible2, setVisible2]= useState(false);
+
 // Top movie state 
-  const [topm, setTopm]= useState(false);
+const [topm, setTopm]= useState(false);
+
 //Action movie
 const[action,setAction] = useState(false);
+
 //comedy & Drama Movie
 const [comedy, setComedy] = useState(false);
+
+// For Form user input
+const [name, setName]= useState('');
+const [subm, setSub]= useState('');
+
 
 const plus = ()=>{
     let color1 = '#242B2E';
@@ -113,6 +120,14 @@ const comedyCollect = ()=>{
   setVisible1(false);
   setVisible2 (false);
   setTopm(false);
+}
+
+//Taking Event From Input
+const inpuFun = (x) =>{
+  setName(x.target.value)
+}
+const submitData = ()=>{
+  setSub(name);
 }
 
  const a = "🔥🔥";
@@ -172,20 +187,24 @@ const comedyCollect = ()=>{
     {ondata}
    
 </center> 
-<br/><br/><br/>
+<br/><br/><br/><br/><br/><br/> 
 
 
  <div className="container-fluid">
-  <div className="container">
-       <form>
-          <input type="text" name="name"/>
-          <input type="submit" value="Submit" />
-       </form>
+  <div className="container ">
+         <p class="text-center"><h4>{subm}</h4></p>
+        <div class="d-flex justify-content-center">
+        <form method="get" action="#">
+          {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
+          <input type="text" name="name"  placeholder="Enter your name" onChange={inpuFun} />
+          <button onClick={submitData}>Submit</button>
+        </form>
+        </div>
   </div>
  </div>
 
 
- <br/>  
+ <br/>   <br/>   <br/>  
   <center>
       <button onClick={sayHello}>Click me!</button> 
       <p id="btPar">Hello India</p>  
