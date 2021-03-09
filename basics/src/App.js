@@ -123,8 +123,9 @@ const comedyCollect = ()=>{
 }
 
 //Taking Event From Input
-const inpuFun = (x) =>{
-  setName(x.target.value)
+const inpuFun = (e) =>{
+  e.preventDefault();
+  setName(e.target.value);
 }
 const submitData = ()=>{
   setSub(name);
@@ -191,16 +192,17 @@ const submitData = ()=>{
 
 
  <div className="container-fluid">
-  <div className="container ">
+    <div className="container ">
          <p class="text-center"><h4>{subm}</h4></p>
         <div class="d-flex justify-content-center">
-        <form method="get" action="#">
+         <form onSubmit={submitData}>
           {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
-          <input type="text" name="name"  placeholder="Enter your name" onChange={inpuFun} />
-          <button onClick={submitData}>Submit</button>
-        </form>
+          <input type="text" name="name"  placeholder="Enter your name" onChange={inpuFun} value={name} />
+          <button type="button">Submit</button>
+
+          </form>
         </div>
-  </div>
+    </div>
  </div>
 
 
