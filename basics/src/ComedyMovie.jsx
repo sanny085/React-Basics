@@ -2,11 +2,13 @@ import {ComedyMov} from './Loopcard';
 
 const ComedyMovie =()=> {
    return (
-    <div className="container-fluid mt-3" > 
-        <div className="row  ">
-                <ComedyMov/> 
+    <React.Fragment> 
+        <div className="container-fluid mt-3" > 
+            <div className="row  ">
+                    <ComedyMov/> 
+            </div>
         </div>
-    </div>
+    </React.Fragment>  
     );
 }
 
