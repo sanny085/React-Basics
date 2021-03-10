@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css'
 import Orderlist from './Orderlist';
 import Paragraph from './Paragraph';
 import {add, sub, mul, divid} from './Calculator';
@@ -40,6 +41,12 @@ var AnoGallery = {
   fontSize:'3rem'
 };  
 
+const smallAnimal = ['Goat', 'Rat', 'Dog', 'Cat'];
+const bigAnimal = ['Cow', 'Buffalo', 'Elephant'];
+
+const allAnimal = [...smallAnimal, ...bigAnimal];
+console.log(allAnimal);
+
 
 {/*Master Page*/}
 const App = () => {
@@ -63,18 +70,21 @@ const[action,setAction] = useState(false);
 
 //comedy & Drama Movie
 const [comedy, setComedy] = useState(false);
-
 // For Form user input
 const [name1, setName1] = useState('');
 const [name2, setName2] = useState('');
 const [subm, setSub] = useState('');
 
-const plus = ()=>{
+//Todo Data
+const [todo, setTodo] = useState('');
+const [subtodo, setSubTodo] = useState('');
+
+const plus = () => {
     let color1 = '#242B2E';
     setClr(color1);
     otherDatag(ondata+5);
 };
-const minus = ()=>{
+const minus = () => {
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
@@ -126,11 +136,23 @@ const inpuFun1 = (event) =>{
 const inpuFun2 = (event) =>{
   setName2(event.target.value);
 };
+
 const submitData = (event) =>{
   //event.prevent will not refresh page before submit form 
   event.preventDefault();
   setSub(name1+' '+name2);
 };
+
+//Todo List Item
+const todoInput = (event)=>{
+  setTodo(event.target.value);
+}
+const todoSubmit = (event) =>{
+  event.preventDefault();
+  setSubTodo(todo);
+}
+//End Todo List Item
+
 
 
  const a = "🔥🔥";
@@ -169,11 +191,10 @@ const submitData = (event) =>{
       <h3>Evaluate {2+3}</h3>
       <h3>Masic Number is {Math.random()}</h3>
 
-     {/*Gallery Card Filter*/}
-     <h3 style={GalleryText}>Our Services</h3>
+  {/*Gallery Card Filter*/}
+  <h3 style={GalleryText}>Our Services</h3>
      
-    {/*<h3 className={`  ${AnoGallery}`}>Another Services</h3>*/}
-
+  {/*<h3 className={`  ${AnoGallery}`}>Another Services</h3>*/}
   <div className="container1" style={{backgroundColor : clr}}>
       <a href="http://aictech.co.in/" target="_blank">
         <img className="img1 border border-secondary border-2" src={img1} title="check Image" alt="Background Image"/>
@@ -182,28 +203,28 @@ const submitData = (event) =>{
       <img className="img1 border border-secondary border-2" src={img3} title="check Image" alt="Background Image"/>
       <img className="img1 border border-secondary border-2" src={img4} title="check Image" alt="Background Image"/>
   </div>
-   <br/>  
+  <br/>  
+
 <center>
   <h5 class="text-info">Click to Change Background Color</h5>
     <button type="button" className="btn btn-dark mx-3" onClick={()=>plus()}>++</button>
     <button type="button" className="btn btn-dark mx-3" onClick={()=>minus()}>--</button>
     {ondata}
-   
 </center> 
-<br/><br/><br/><br/><br/><br/> 
 
+<br/><br/><br/><br/><br/><br/> 
 
 <div className="container-fluid">
     <div className="container">
       <p class="text-center text-dark"><h4>{subm}</h4></p>
        <div class="d-flex justify-content-center">
-          <form onSubmit={submitData}> 
+         <form onSubmit={submitData}> 
             {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
             <input type="text"  placeholder="First Name" onChange={inpuFun1} value={name1}/>
             <input type="text"  placeholder="Last Name" onChange={inpuFun2} value={name2}/>
             <br/>
             <button type="submit">Submit</button>
-          </form>
+         </form>
         </div>
     </div>
 </div>
@@ -214,17 +235,54 @@ const submitData = (event) =>{
       <button onClick={sayHello}>Click me!</button> 
       <p id="btPar">Hello India</p>  
   </center>
-  <br/>
+<br/>
+
+
+{/*Todo List*/}
+<div className="container-fluid">
+     <div className="container">
+        <div className="card shadow-sm pt-4  mx-auto d-block" style={{width:"40rem"}}>
+        <h3 className="todoHeader">TODO LIST</h3>
+            <div className="card-body">
+              <div className="row d-flex justify-content-around">
+                <form>
+                  <div className="col">
+                    <input type="text" className="inputSty" onChange={todoInput} placeholder="Add Item"/>
+                  
+                   {/* <button type="button"  onClick={todoSubmit} className="todoButton">
+                      <span className="p-4 rounded-circle">+</span>
+                    </button> */}
+                  
+                    <div class="round-button  todoButton float-right ml-5 mb-4">
+                      <div class="round-button-circle ">
+                          <a href="#" class="round-button" onClick={todoSubmit}>+</a>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+              {/*Card list*/}
+              <div className="row d-flex mt-3 pl-5">
+              
+                  <ul className="pl-4" className="listData">
+                    <li>{subtodo}</li>
+                  </ul>
+               </div>
+
+              <br/><br/><br/><br/><br/><br/><br/><br/>
+            </div>
+        </div>
+      </div>
+</div>
+{/*End Todo List*/}
 
 
 <h3 style={GalleryText}>Best Collection</h3>
 <div className="container-fluid">
-   
-  
      
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Amazon Series</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series(All)</button>
-
 
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>topCollec()}>Top Collection</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>actionCollect()}>Action</button>
