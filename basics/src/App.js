@@ -77,7 +77,7 @@ const [subm, setSub] = useState('');
 
 //Todo Data
 const [todo, setTodo] = useState('');
-const [subtodo, setSubTodo] = useState('');
+const [subtodo, setSubTodo] = useState([]);
 
 const plus = () => {
     let color1 = '#242B2E';
@@ -128,7 +128,6 @@ const comedyCollect = ()=>{
   setVisible2 (false);
   setTopm(false);
 };
-
 //When Call any Event it return pass >>>>OBJECT<<<< (like:- event)
 const inpuFun1 = (event) =>{
   setName1(event.target.value);
@@ -144,15 +143,15 @@ const submitData = (event) =>{
 };
 
 //Todo List Item
-const todoInput = (event)=>{
+const todoInput = (event) => {
   setTodo(event.target.value);
 }
-const todoSubmit = (event) =>{
-  event.preventDefault();
-  setSubTodo(todo);
+const todoSubmit = () => {
+  setSubTodo( (oldItem) =>{
+    return [...oldItem, todo];
+  });
 }
 //End Todo List Item
-
 
 
  const a = "🔥🔥";
@@ -235,13 +234,15 @@ const todoSubmit = (event) =>{
       <button onClick={sayHello}>Click me!</button> 
       <p id="btPar">Hello India</p>  
   </center>
-<br/>
+<br/><br/><br/><br/>
+
+
 
 
 {/*Todo List*/}
 <div className="container-fluid">
      <div className="container">
-        <div className="card shadow-sm pt-4  mx-auto d-block" style={{width:"40rem"}}>
+        <div className="card shadow-sm pt-4  mx-auto d-block" style={{width:"38rem"}}>
         <h3 className="todoHeader">TODO LIST</h3>
             <div className="card-body">
               <div className="row d-flex justify-content-around">
@@ -249,23 +250,18 @@ const todoSubmit = (event) =>{
                   <div className="col">
                     <input type="text" className="inputSty" onChange={todoInput} placeholder="Add Item"/>
                   
-                   {/* <button type="button"  onClick={todoSubmit} className="todoButton">
-                      <span className="p-4 rounded-circle">+</span>
-                    </button> */}
-                  
-                    <div class="round-button  todoButton float-right ml-5 mb-4">
-                      <div class="round-button-circle ">
-                          <a href="#" class="round-button" onClick={todoSubmit}>+</a>
-                      </div>
-                    </div>
-
+          {/* <button type="button"  onClick={todoSubmit} className="todoButton">
+            <span className="p-4 rounded-circle">+</span>
+          </button> */}
+                    <button type="button" class="btn ml-3 btn-circle btn-lg" onClick={todoSubmit}><i class="fa fa-plus text-light" aria-hidden="true"></i></button>
+              
                   </div>
                 </form>
               </div>
               {/*Card list*/}
-              <div className="row d-flex mt-3 pl-5">
+          <div className="row d-flex mt-3  ">
               
-                <table class="table table-hover mx-auto">
+              <table class="table table-hover mx-auto">
                   <tbody>
                     {
                       subtodo.map( (itemVal) => {
@@ -280,10 +276,9 @@ const todoSubmit = (event) =>{
                        )
                        })
                     }
-                  </tbody>
-                </table>
-
-
+                 </tbody>
+              </table>
+               
                </div>
 
               <br/><br/><br/><br/><br/><br/><br/><br/>
@@ -293,6 +288,10 @@ const todoSubmit = (event) =>{
 </div>
 {/*End Todo List*/}
 
+
+
+
+<br/><br/><br/><br/><br/> 
 
 <h3 style={GalleryText}>Best Collection</h3>
 <div className="container-fluid">
