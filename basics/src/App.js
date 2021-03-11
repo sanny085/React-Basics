@@ -265,9 +265,25 @@ const todoSubmit = (event) =>{
               {/*Card list*/}
               <div className="row d-flex mt-3 pl-5">
               
-                  <ul className="pl-4" className="listData">
-                    <li>{subtodo}</li>
-                  </ul>
+                <table class="table table-hover mx-auto">
+                  <tbody>
+                    {
+                      subtodo.map( (itemVal) => {
+                      return(
+                        <tr>
+                           <th scope="row"></th>
+                            <td className="allListItem">
+                                <i class="fa fa-times p-2 rounded-circle mr-3 deleteIcon" aria-hidden="true"></i> 
+                                {itemVal}
+                            </td>
+                        </tr>
+                       )
+                       })
+                    }
+                  </tbody>
+                </table>
+
+
                </div>
 
               <br/><br/><br/><br/><br/><br/><br/><br/>
