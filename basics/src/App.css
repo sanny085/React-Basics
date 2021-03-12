@@ -25,7 +25,6 @@
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -38,7 +37,6 @@
   background-color:royalblue;
   margin:15px;
 }
-
 
 /*Todo Style*/
 .todoHeader{
