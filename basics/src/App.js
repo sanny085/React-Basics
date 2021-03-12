@@ -9,6 +9,19 @@ import Amazon from './Amazon';
 import TopCollectMovie from './TopCollectMovie';
 import ActionMovie from './ActionMovie';
 import ComedyMovie from './ComedyMovie';
+import TodoList from './TodoList';
+import AddIcon from '@material-ui/icons/Add'; 
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
+
+
+
 
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
@@ -85,9 +98,18 @@ const plus = () => {
     otherDatag(ondata+5);
 };
 const minus = () => {
+  if(ondata > 0)
+  {
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
+  }
+  else{
+    otherDatag(0);
+    alert('Sorry You Can not Decrement! Number is 0');
+  }
+   
+
 };  
 const sayHello = () => {
     document.getElementById('btPar').innerHTML = "Hello Developer";
@@ -147,8 +169,20 @@ const todoInput = (event) => {
   setTodo(event.target.value);
 }
 const todoSubmit = () => {
+  
   setSubTodo( (oldItem) =>{
     return [...oldItem, todo];
+  });
+  setTodo('');
+}
+
+const deleteItem = (id)=>{
+  console.log("Deleted");
+  
+  setSubTodo( (oldItem) =>{
+    return oldItem.filter((arrEle, index)=>{
+        return index !== id;
+    }) ;
   });
 }
 //End Todo List Item
@@ -222,7 +256,7 @@ const todoSubmit = () => {
             <input type="text"  placeholder="First Name" onChange={inpuFun1} value={name1}/>
             <input type="text"  placeholder="Last Name" onChange={inpuFun2} value={name2}/>
             <br/>
-            <button type="submit">Submit</button>
+            <Button variant="contained" color="primary" style={{backgroundColor: '#0062cc'}} type="submit">Submit</Button>
          </form>
         </div>
     </div>
@@ -231,7 +265,7 @@ const todoSubmit = () => {
 
 
   <center>
-      <button onClick={sayHello}>Click me!</button> 
+      <Button variant="contained" onClick={sayHello}>Click me!</Button> 
       <p id="btPar">Hello India</p>  
   </center>
 <br/><br/><br/><br/>
@@ -248,38 +282,40 @@ const todoSubmit = () => {
               <div className="row d-flex justify-content-around">
                 <form>
                   <div className="col">
-                    <input type="text" className="inputSty" onChange={todoInput} placeholder="Add Item"/>
+                    <input type="text" value={todo} className="inputSty" onChange={todoInput} placeholder="Item"/>
                   
           {/* <button type="button"  onClick={todoSubmit} className="todoButton">
             <span className="p-4 rounded-circle">+</span>
           </button> */}
-                    <button type="button" class="btn ml-3 btn-circle btn-lg" onClick={todoSubmit}><i class="fa fa-plus text-light" aria-hidden="true"></i></button>
-              
+             
+                    <button type="button" class="btn ml-3 btn-circle btn-lg" onClick={todoSubmit}>
+                     <Tooltip title="Add More">   
+                      <AddIcon style={{color:"white"}}/>
+                     </Tooltip>    
+                    </button>
+          
                   </div>
                 </form>
               </div>
-              {/*Card list*/}
+
+          {/*Card list*/}
           <div className="row d-flex mt-3  ">
-              
               <table class="table table-hover mx-auto">
                   <tbody>
                     {
-                      subtodo.map( (itemVal) => {
-                      return(
-                        <tr>
-                           <th scope="row"></th>
-                            <td className="allListItem">
-                                <i class="fa fa-times p-2 rounded-circle mr-3 deleteIcon" aria-hidden="true"></i> 
-                                {itemVal}
-                            </td>
-                        </tr>
-                       )
-                       })
+                    subtodo.map( (itemVal,index) => {
+                    return(
+                        <TodoList 
+                       item={itemVal} 
+                       key={index} 
+                       id={index} 
+                       onSelect={deleteItem}/>
+                       ) 
+                     })
                     }
                  </tbody>
               </table>
-               
-               </div>
+          </div>
 
               <br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
@@ -287,11 +323,41 @@ const todoSubmit = () => {
       </div>
 </div>
 {/*End Todo List*/}
-
-
-
+ 
 
 <br/><br/><br/><br/><br/> 
+{/*Material UI Card*/}
+<Card style={{ maxWidth: "345px"}}>
+      <CardActionArea>
+        <CardMedia
+          style={{height: "140px"}}
+          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            Lizard
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+            across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+{/*End Material UI Card*/}
+<br/><br/><br/><br/><br/> 
+
+
+
 
 <h3 style={GalleryText}>Best Collection</h3>
 <div className="container-fluid">
