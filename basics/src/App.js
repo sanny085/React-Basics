@@ -19,7 +19,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
-
+ 
 
 
 
@@ -83,6 +83,7 @@ const[action,setAction] = useState(false);
 
 //comedy & Drama Movie
 const [comedy, setComedy] = useState(false);
+
 // For Form user input
 const [name1, setName1] = useState('');
 const [name2, setName2] = useState('');
@@ -98,8 +99,7 @@ const plus = () => {
     otherDatag(ondata+5);
 };
 const minus = () => {
-  if(ondata > 0)
-  {
+  if(ondata > 0){
     otherDatag(ondata-5);
     let color2 = 'green';
     setClr(color2);
@@ -109,7 +109,6 @@ const minus = () => {
     alert('Sorry You Can not Decrement! Number is 0');
   }
    
-
 };  
 const sayHello = () => {
     document.getElementById('btPar').innerHTML = "Hello Developer";
@@ -151,48 +150,51 @@ const comedyCollect = ()=>{
   setTopm(false);
 };
 //When Call any Event it return pass >>>>OBJECT<<<< (like:- event)
-const inpuFun1 = (event) =>{
+const inpuFun1 = (event) => {
   setName1(event.target.value);
 };
-const inpuFun2 = (event) =>{
+const inpuFun2 = (event) => {
   setName2(event.target.value);
 };
 
-const submitData = (event) =>{
+const submitData = (event) => {
   //event.prevent will not refresh page before submit form 
   event.preventDefault();
   setSub(name1+' '+name2);
+  setName1('');
+  setName2('');
+  
 };
 
 //Todo List Item
 const todoInput = (event) => {
   setTodo(event.target.value);
 }
+
 const todoSubmit = () => {
-  
-  setSubTodo( (oldItem) =>{
+    setSubTodo( (oldItem) => {
     return [...oldItem, todo];
   });
   setTodo('');
 }
 
-const deleteItem = (id)=>{
+const deleteItem = (id) => {
   console.log("Deleted");
   
-  setSubTodo( (oldItem) =>{
-    return oldItem.filter((arrEle, index)=>{
+  setSubTodo( (oldItem) => {
+    return oldItem.filter((arrEle, index)=> {
         return index !== id;
-    }) ;
+    } ) ;
   });
 }
 //End Todo List Item
 
 
  const a = "🔥🔥";
-  return (
+  return ( 
     <React.Fragment>
    {a}
-     <div className="card mx-auto  mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
+     <div className="card mx-auto mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
         <div className="card-body">
             <h4 className="card-title text-center text-muted p-4"> {age} </h4>
               <button className="btn btn-warning d-block mx-auto" onClick={ () => setAge(age + 1) }>
@@ -213,6 +215,8 @@ const deleteItem = (id)=>{
             <li>Multiplication of two number is : {mul(3,5)}</li>
             <li>Division of two number is : {divid(20,5)}</li>
           </ul>
+
+
      {/*h3 is JSX Elements inside App function */} 
     {/*Multiple JSX Elements inside App function */} 
       {/*inside {} everything is javascript */}
@@ -305,13 +309,13 @@ const deleteItem = (id)=>{
                     {
                     subtodo.map( (itemVal,index) => {
                     return(
-                        <TodoList 
+                     <TodoList 
                        item={itemVal} 
                        key={index} 
                        id={index} 
                        onSelect={deleteItem}/>
                        ) 
-                     })
+                      } )
                     }
                  </tbody>
               </table>
