@@ -21,6 +21,8 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
  
 
+
+
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -170,10 +172,15 @@ const todoInput = (event) => {
 }
 
 const todoSubmit = () => {
-    setSubTodo( (oldItem) => {
-    return [...oldItem, todo];
-  });
-  setTodo('');
+  let getvalue = todo.trim();
+  if(getvalue !== '' )
+   {
+     setSubTodo( (oldItem) => {
+       return [...oldItem, todo];
+   });
+   setTodo('');
+  }
+
 }
 
 const deleteItem = (id) => {
@@ -277,14 +284,15 @@ const deleteItem = (id) => {
 
 {/*Todo List*/}
 <div className="container-fluid">
-     <div className="container">
+    <div className="container">
         <div className="card shadow-sm pt-4  mx-auto d-block" style={{width:"38rem"}}>
         <h3 className="todoHeader">TODO LIST</h3>
             <div className="card-body">
               <div className="row d-flex justify-content-around">
                 <form>
                   <div className="col">
-                    <input type="text" value={todo} className="inputSty" onChange={todoInput} placeholder="Item"/>
+                    
+                    <input type="text" value={todo} className="inputSty" onChange={todoInput} placeholder="Item" required/>
                   
           {/* <button type="button"  onClick={todoSubmit} className="todoButton">
             <span className="p-4 rounded-circle">+</span>
@@ -322,10 +330,12 @@ const deleteItem = (id) => {
               <br/><br/><br/><br/><br/><br/><br/><br/>
             </div>
         </div>
-      </div>
+    </div>
 </div>
 {/*End Todo List*/}
- 
+
+
+
 
 <br/><br/><br/><br/><br/> 
 {/*Material UI Card*/}
