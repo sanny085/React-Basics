@@ -4,7 +4,7 @@ import Orderlist from './Orderlist';
 import Paragraph from './Paragraph';
 import {add, sub, mul, divid} from './Calculator';
 import NetSection from './NetSection';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import Amazon from './Amazon';
 import TopCollectMovie from './TopCollectMovie';
 import ActionMovie from './ActionMovie';
@@ -92,6 +92,11 @@ const [subm, setSub] = useState('');
 //Todo Data
 const [todo, setTodo] = useState('');
 const [subtodo, setSubTodo] = useState([]);
+
+useEffect(() => {
+  alert("Do You Want to Watch Action Movie");
+  
+}, [action] )
 
 const plus = () => {
     let color1 = '#242B2E';
@@ -397,7 +402,7 @@ const deleteItem = (id) => {
       {action ? <ActionMovie/> : ""}
       {comedy ? <ComedyMovie/> : ""}
     </>
-     
+      
 </div>
     
    </React.Fragment>
