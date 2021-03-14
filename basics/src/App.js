@@ -95,8 +95,7 @@ const [subtodo, setSubTodo] = useState([]);
 
 useEffect(() => {
   alert("Do You Want to Watch Action Movie");
-  
-}, [action] )
+},[action]);
 
 const plus = () => {
     let color1 = '#242B2E';
