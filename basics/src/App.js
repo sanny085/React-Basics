@@ -21,8 +21,6 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
  
 
-
-
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -193,7 +191,7 @@ const deleteItem = (id) => {
   setSubTodo( (oldItem) => {
     return oldItem.filter((arrEle, index)=> {
         return index !== id;
-    } ) ;
+    } );
   });
 }
 //End Todo List Item
