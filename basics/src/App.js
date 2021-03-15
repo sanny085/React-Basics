@@ -387,7 +387,6 @@ const deleteItem = (id) => {
 */}
 
 
-
     <> 
     <br/> 
     <p class="float-right text-dark">Total{}</p>
