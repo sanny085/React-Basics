@@ -19,7 +19,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
- 
+import CardImageFilter from './CardImageFilter'; 
+
 
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
@@ -91,6 +92,9 @@ const [subm, setSub] = useState('');
 const [todo, setTodo] = useState('');
 const [subtodo, setSubTodo] = useState([]);
 
+// Card Image
+const [image, setImage] = useState(''); 
+ 
 useEffect(() => {
   alert("Do You Want to Watch Action Movie");
 },[action]);
@@ -195,6 +199,14 @@ const deleteItem = (id) => {
   });
 }
 //End Todo List Item
+
+
+//Start Image Function
+const cardFilter = (event) =>{
+  setImage(event.target.value);
+  console.log(image);
+}
+//End Image Function
 
 
  const a = "🔥🔥";
