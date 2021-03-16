@@ -215,6 +215,27 @@ const deleteItem = (id) => {
     {/*component creation*/} 
     <Orderlist/>
     <Paragraph/>
+     
+     
+{/*Image Filter*/}
+<br/><br/><br/><br/><br/><br/><br/>
+<div className="container-fluid">
+    <div className="container">
+    <p class="text-center text-dark"><h3>Card Search Filter</h3></p>
+        <div class="d-flex justify-content-center">
+          <form onSubmit={submitData}> 
+             {/*When Calling onChange Event it passes an OBJECT (x, or any varible can take)*/}
+             <input type="text"  placeholder="Search Anything" onChange={cardFilter} value={image}/> 
+             <br/> <br/>
+          </form>
+        </div>
+        <div className="text-center">
+       {image === '' ? null : <CardImageFilter nameV={image}/>  }    
+        </div>
+    </div>
+</div>
+<br/><br/><br/><br/>
+{/*End Image Filter*/}
 
           <ul>
             <li>Addition of two number is : {add(6,5)}</li>
