@@ -1,4 +1,5 @@
 import {Topmovie} from './Loopcard';
+
 const TopCollectMovie =()=> {
    return (
     <div className="container-fluid mt-3" > 
@@ -8,4 +9,5 @@ const TopCollectMovie =()=> {
     </div>
     );
 }
+
 export default TopCollectMovie;
