@@ -1,11 +1,8 @@
 const Moviecollect = [
-
 {
    "title":"Khosla Ka Ghosla!",
    "year":"2006",
-   "genres":[
-      "Comedy", "Crime", "Drama"
-   ],
+   "genres":[ "Comedy", "Crime", "Drama" ],
    "ratings":[
       10,
       9,
@@ -52,17 +49,14 @@ const Moviecollect = [
    ],
    "imdbRating":8.4,
    "posterurl":"https://images-na.ssl-images-amazon.com/images/M/MV5BZTg2YWFkOGMtYWExMy00YmFiLTk2YjctNTAzZDk5MjdhMzdlXkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_SX262_CR0,0,262,377_AL_.jpg"
+ 
 },
-
-
+ 
+ 
 {
    "title":"Munna Bhai M.B.B.S.",
    "year":"2003",
-   "genres":[
-      "Comedy",
-      "Drama",
-      "Romance"
-   ],
+   "genres":[ "Comedy", "Drama", "Romance" ],
    "ratings":[
       2,
       3,
@@ -281,7 +275,7 @@ const Moviecollect = [
    "year":"1975",
    "genres":[
       "Action",
-      "comedy"
+      "Comedy"
    ],
    "ratings":[
       2,
