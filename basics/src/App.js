@@ -22,6 +22,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CardImageFilter from './CardImageFilter'; 
 
 
+
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -70,11 +71,11 @@ const App = () => {
   //React Hooks state ckanging
   const [clr, setClr]  = useState(color);
   
-// For Both card Amazon and Netflix
+//For Both card Amazon and Netflix
 const [visible1, setVisible1]= useState(false);
 const [visible2, setVisible2]= useState(false);
 
-// Top movie state 
+//Top movie state 
 const [topm, setTopm]= useState(false);
 
 //Action movie
@@ -88,16 +89,23 @@ const [name1, setName1] = useState('');
 const [name2, setName2] = useState('');
 const [subm, setSub] = useState('');
 
-//Todo Data
+// Todo Data
 const [todo, setTodo] = useState('');
 const [subtodo, setSubTodo] = useState([]);
 
 // Card Image
-const [image, setImage] = useState(''); 
- 
+const [image, setImage] = useState('');
+
+
 useEffect(() => {
+  document.title = `You Clicked me ${age} times`;
+  },[age]
+);
+
+useEffect(() => { 
   alert("Do You Want to Watch Action Movie");
-},[action]);
+},[action]
+);
 
 const plus = () => {
     let color1 = '#242B2E';
@@ -169,7 +177,6 @@ const submitData = (event) => {
   setSub(name1+' '+name2);
   setName1('');
   setName2('');
-  
 };
 
 //Todo List Item
@@ -186,7 +193,6 @@ const todoSubmit = () => {
    });
    setTodo('');
   }
-
 }
 
 const deleteItem = (id) => {
@@ -195,7 +201,7 @@ const deleteItem = (id) => {
   setSubTodo( (oldItem) => {
     return oldItem.filter((arrEle, index)=> {
         return index !== id;
-    } );
+    } ) ;
   });
 }
 //End Todo List Item
@@ -207,7 +213,6 @@ const cardFilter = (event) =>{
   console.log(image);
 }
 //End Image Function
-
 
  const a = "🔥🔥";
   return ( 
@@ -227,8 +232,8 @@ const cardFilter = (event) =>{
     {/*component creation*/} 
     <Orderlist/>
     <Paragraph/>
-     
-     
+ 
+
 {/*Image Filter*/}
 <br/><br/><br/><br/><br/><br/><br/>
 <div className="container-fluid">
@@ -248,6 +253,7 @@ const cardFilter = (event) =>{
 </div>
 <br/><br/><br/><br/>
 {/*End Image Filter*/}
+
 
           <ul>
             <li>Addition of two number is : {add(6,5)}</li>
@@ -418,6 +424,7 @@ const cardFilter = (event) =>{
 {/*<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Science</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series</button>
 */}
+
 
 
     <> 
