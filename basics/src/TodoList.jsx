@@ -2,11 +2,9 @@ import React from 'react';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import Button from '@material-ui/core/Button';
 
-
 const TodoList = (props) => {
-
-    return(
-        <>
+  return(
+      <>
         <tr>
            <th scope="row"></th>
             <td className="allListItem"> 
@@ -21,8 +19,9 @@ const TodoList = (props) => {
                 {props.item}
             </td>
         </tr>
-        </>
+      </>
        )
+
 }
 
 export default TodoList;
