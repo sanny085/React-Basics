@@ -90,13 +90,14 @@ const Actmovie =()=>{
  
     }
  })
-
+ 
 }
 
 
 // Comedy Movie Component
-const ComedyMov =()=>{
-   return Moviecollect.map( (val,i)=>{
+const ComedyMov = ()=> {
+
+   return Moviecollect.map( (val,i) => {
       if((val.genres[0] == 'Comedy') ||(val.genres[1] == 'Comedy') )
       {
       return(
@@ -113,12 +114,11 @@ const ComedyMov =()=>{
            /> 
         </div> 
         );
- 
-    }
- })
+      }
+   }
+ )
 
 }
-
 
 export {Loopcard, AmazLoop, Topmovie, Actmovie, ComedyMov};
  
