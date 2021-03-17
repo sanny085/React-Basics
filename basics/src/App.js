@@ -22,7 +22,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CardImageFilter from './CardImageFilter'; 
 
 
-
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
