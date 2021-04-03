@@ -21,6 +21,12 @@ import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
 import CardImageFilter from './CardImageFilter'; 
 
+import TicTac from './TicTac';
+
+
+import { FaBeer } from 'react-icons/fa';
+import {DiGithubAlt} from 'react-icons/di'
+import {GrView} from 'react-icons/gr';
 
 
 const fName = "Raja";
@@ -96,16 +102,6 @@ const [subtodo, setSubTodo] = useState([]);
 // Card Image
 const [image, setImage] = useState('');
 
-
-useEffect(() => {
-  document.title = `You Clicked me ${age} times`;
-  },[age]
-);
-
-useEffect(() => { 
-  alert("Do You Want to Watch Action Movie");
-},[action]
-);
 
 const plus = () => {
     let color1 = '#242B2E';
@@ -214,9 +210,21 @@ const cardFilter = (event) =>{
 }
 //End Image Function
 
+
+
+
  const a = "🔥🔥";
   return ( 
     <React.Fragment>
+
+ 
+
+{/* Same as */}
+ 
+   <FaBeer />
+   <DiGithubAlt/>
+   <GrView/>
+   
    {a}
      <div className="card mx-auto mt-3 Counter" style={{ "width":"360px"}}>
         <div className="card-header">
@@ -241,8 +249,10 @@ const cardFilter = (event) =>{
     {/*component creation*/} 
     <Orderlist/>
     <Paragraph/>
+   
+    {/*TicTac*/}
+    <TicTac/>
  
-
 {/*Image Filter*/}
 <br/><br/><br/><br/><br/><br/><br/>
 <div className="container-fluid">
@@ -264,12 +274,12 @@ const cardFilter = (event) =>{
 {/*End Image Filter*/}
 
 
-          <ul>
+        <ul>
             <li>Addition of two number is : {add(6,5)}</li>
             <li>Subtraction of two number is : {sub(34,5)}</li>
             <li>Multiplication of two number is : {mul(3,5)}</li>
             <li>Division of two number is : {divid(20,5)}</li>
-          </ul>
+        </ul>
 
 
      {/*h3 is JSX Elements inside App function */} 
@@ -328,7 +338,6 @@ const cardFilter = (event) =>{
   </center>
 <br/><br/><br/><br/>
 
-
 {/*Todo List*/}
 <div className="container-fluid">
     <div className="container">
@@ -356,7 +365,7 @@ const cardFilter = (event) =>{
               </div>
 
           {/*Card list*/}
-          <div className="row d-flex mt-3  ">
+          <div className="row d-flex mt-3">
               <table class="table table-hover mx-auto">
                   <tbody>
                     {
@@ -370,7 +379,7 @@ const cardFilter = (event) =>{
                        ) 
                       } )
                     }
-                 </tbody>
+                  </tbody>
               </table>
           </div>
 
