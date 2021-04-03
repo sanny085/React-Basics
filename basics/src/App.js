@@ -22,6 +22,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CardImageFilter from './CardImageFilter'; 
 
 
+
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
 const date1 = new Date();
@@ -166,6 +167,7 @@ const comedyCollect = ()=>{
 const inpuFun1 = (event) => {
   setName1(event.target.value);
 };
+
 const inpuFun2 = (event) => {
   setName2(event.target.value);
 };
@@ -181,15 +183,15 @@ const submitData = (event) => {
 //Todo List Item
 const todoInput = (event) => {
   setTodo(event.target.value);
-}
+};
 
 const todoSubmit = () => {
   let getvalue = todo.trim();
-  if(getvalue !== '' )
-   {
+  if(getvalue !== '')
+    {
      setSubTodo( (oldItem) => {
        return [...oldItem, todo];
-   });
+    });
    setTodo('');
   }
 }
@@ -200,11 +202,10 @@ const deleteItem = (id) => {
   setSubTodo( (oldItem) => {
     return oldItem.filter((arrEle, index)=> {
         return index !== id;
-    } ) ;
+    });
   });
 }
 //End Todo List Item
-
 
 //Start Image Function
 const cardFilter = (event) =>{
@@ -217,11 +218,20 @@ const cardFilter = (event) =>{
   return ( 
     <React.Fragment>
    {a}
-     <div className="card mx-auto mt-3"  style={{"width":"320px","backgroundColor":"lightblue" }}>
+     <div className="card mx-auto mt-3 Counter" style={{ "width":"360px"}}>
+        <div className="card-header">
+          <h4 className="text text-dark h5" >Counter App Using State/Hooks</h4>
+        </div>
         <div className="card-body">
             <h4 className="card-title text-center text-muted p-4"> {age} </h4>
-              <button className="btn btn-warning d-block mx-auto" onClick={ () => setAge(age + 1) }>
-                Click me
+              <button className="btn btn-success d-block mx-auto m-1" onClick={ () => age >= 10 ? alert("Maximum Limit Crossed") : setAge(age + 1) }>
+                Increase
+              </button>
+              <button className="btn btn-primary d-block mx-auto m-1" onClick={ () => age<1 ?  alert("Lowest Limit") : setAge(age-1) }>
+                Decrease
+              </button>
+              <button className="btn btn-danger d-block mx-auto m-1" onClick={ () => age > 1 ? alert('Really want to Reset ? ') || setAge(0) : "" }>
+                Reset
               </button>
         </div>
      </div>
@@ -312,14 +322,11 @@ const cardFilter = (event) =>{
 </div>
 <br/><br/><br/>  
 
-
   <center>
       <Button variant="contained" onClick={sayHello}>Click me!</Button> 
       <p id="btPar">Hello India</p>  
   </center>
 <br/><br/><br/><br/>
-
-
 
 
 {/*Todo List*/}
@@ -354,7 +361,7 @@ const cardFilter = (event) =>{
                   <tbody>
                     {
                     subtodo.map( (itemVal,index) => {
-                    return(
+                    return (
                      <TodoList 
                        item={itemVal} 
                        key={index} 
