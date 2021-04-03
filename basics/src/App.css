@@ -111,6 +111,8 @@
 }
 .deleteIcon:hover{
   background-color:#f81504;
- 
+}
+div.Counter {
+  background-image: linear-gradient(180deg, #9FA4C4, #B3CDD1);
 }
 /*End Todo Style*/
