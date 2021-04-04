@@ -210,14 +210,9 @@ const cardFilter = (event) =>{
 }
 //End Image Function
 
-
-
-
  const a = "🔥🔥";
   return ( 
     <React.Fragment>
-
- 
 
 {/* Same as */}
  
