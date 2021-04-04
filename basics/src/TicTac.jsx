@@ -4,6 +4,10 @@ import './TicTac.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import {Card, CardBody, Container, Button, } from 'reactstrap'
+ 
+
+
 import Icon from './Icon';
 
 const TicTac = () => {
@@ -22,10 +26,10 @@ const TicTac = () => {
         <>
           <div className="container bg-light">
               <Icon/>
-          </div>  
+          </div>
+            <ToastContainer/>
         </>
     )
-
 }
 export default TicTac;
 
