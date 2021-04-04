@@ -6,9 +6,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import {Card, CardBody, Container, Button, } from 'reactstrap'
  
-
-
 import Icon from './Icon';
+
+
+
 
 const TicTac = () => {
   
