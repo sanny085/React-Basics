@@ -25,7 +25,7 @@ const TicTac = () => {
 
     } 
     const changeItem = itemNumber => {
-
+        
     }
   
     const notify = () => toast('🦄 Wow so easy!', {
@@ -41,8 +41,15 @@ const TicTac = () => {
     return (
         <>
           <div className="container bg-light">
-              <Icon name='circle'/>
-          </div>
+              
+        {
+          itemArray.map((itemNumber, index) => {
+             <Icon name={itemNumber}/>
+        }
+        
+        }
+         
+      
             <ToastContainer/>
         </>
     )
