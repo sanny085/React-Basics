@@ -18,7 +18,8 @@ const TicTac = () => {
     const [winMessage, setWinMessage] = useState("");
 
     const reloadGame = () => {
-
+       setIsCross(false);
+       setWinMessage("");
     }
     const checkIsWinner = () => {
 
