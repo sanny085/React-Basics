@@ -436,7 +436,6 @@ const cardFilter = (event) =>{
 */}
 
 
-
     <> 
     <br/> 
     <p class="float-right text-dark">Total{}</p>
