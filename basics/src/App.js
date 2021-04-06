@@ -23,11 +23,9 @@ import CardImageFilter from './CardImageFilter';
 
 import TicTac from './TicTac';
 
-
 import { FaBeer } from 'react-icons/fa';
 import {DiGithubAlt} from 'react-icons/di'
 import {GrView} from 'react-icons/gr';
-
 
 const fName = "Raja";
 const lName = "Kumar Bhardwaj"
@@ -204,7 +202,7 @@ const deleteItem = (id) => {
 //End Todo List Item
 
 //Start Image Function
-const cardFilter = (event) =>{
+const cardFilter = (event) => {
   setImage(event.target.value);
   console.log(image);
 }
@@ -349,8 +347,8 @@ const cardFilter = (event) =>{
             <span className="p-4 rounded-circle">+</span>
           </button> */}
              
-                    <button type="button" class="btn ml-3 btn-circle btn-lg" onClick={todoSubmit}>
-                     <Tooltip title="Add More">   
+                    <button type="button" class=" ml-3 btn-circle btn-lg" onClick={todoSubmit}>
+                     <Tooltip title="Add More" >   
                       <AddIcon style={{color:"white"}}/>
                      </Tooltip>    
                     </button>
@@ -392,20 +390,20 @@ const cardFilter = (event) =>{
 {/*Material UI Card*/}
 <Card style={{ maxWidth: "345px"}}>
       <CardActionArea>
-        <CardMedia
-          style={{height: "140px"}}
-          image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Lizard
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
+          <CardMedia
+            style={{height: "140px"}}
+            image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              Lizard
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+              across all continents except Antarctica
+            </Typography>
+          </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
@@ -415,7 +413,7 @@ const cardFilter = (event) =>{
           Learn More
         </Button>
       </CardActions>
-    </Card>
+</Card>
 {/*End Material UI Card*/}
 <br/><br/><br/><br/><br/> 
 
@@ -434,6 +432,7 @@ const cardFilter = (event) =>{
 {/*<button type="button" className="btn btn-outline-danger mx-3" onClick={()=>amazonFun()}>Science</button>
 <button type="button" className="btn btn-outline-danger mx-3" onClick={()=>netflixFun()}>Netflix Series</button>
 */}
+
 
 
     <> 
