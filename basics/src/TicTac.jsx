@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TicTac.css';
+
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,25 +8,39 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Card, CardBody, Container, Button, Col, Row } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
+import './TicTac.css';
 import Icon from './Icon';
 
 
-const itemArray = new Array(9).fill("empty");
-
 const TicTac = () => {
+    
     const [isCross, setIsCross] = useState(false);
     const [winMessage, setWinMessage] = useState("");
 
-    const reloadGame = () => {
-       setIsCross(false);
-       setWinMessage("");
-    }
-    const checkIsWinner = () => {
+    const itemArray = new Array(9).fill("s");
 
-    } 
+    const reloadGame = () => {
+      setIsCross(false);
+      setWinMessage("");
+      itemArray.fill("empty", 0, 9);
+    };
+
+    const checkIsWinner = () => {
+     
+
+    };
     const changeItem = itemNumber => {
-        
-    }
+      if(winMessage){
+        return toast(winMessage, {type: 'success'});
+      }
+      if(itemArray[itemNumber] === "empty") {
+        itemArray[itemNumber] = isCross ? "cross" : "circle";
+      }
+      else{
+        return toast("Already filled", {type: 'error'});
+      }
+
+    };
   
     const notify = () => toast('🦄 Wow so easy!', {
         position: "top-left",
@@ -36,23 +50,33 @@ const TicTac = () => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
+        } );
  
-    return (
-        <>
-          <div className="container bg-light">
-              
-        {
-          itemArray.map((itemNumber, index) => {
-             <Icon name={itemNumber}/>
-        }
-        
-        }
-         
-      
-            <ToastContainer/>
-        </>
-    )
+ return (
+   <>
+    <Container className="p-2">
+     Tic tac
+        <ToastContainer position="bottom-center" />
+          <Row>
+            <Col md={6} className="offset-md-3">
+              <div className="grid">
+                {itemArray.map ((item,  index) => {
+                  return( 
+                    <Card color="warning" className="p-2">
+                        <CardBody className="box bg-info">
+                            <Icon name={item} className="icon text-light" /> 
+                        </CardBody>
+                    </Card>
+                  )
+                })}
+              </div>
+            </Col>
+          </Row>
+    </Container>
+   </>
+  )
 }
+
+
 export default TicTac;
 
