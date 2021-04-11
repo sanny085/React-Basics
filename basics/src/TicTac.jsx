@@ -26,7 +26,6 @@ const TicTac = () => {
     };
 
     const checkIsWinner = () => {
-     
 
     };
     const changeItem = itemNumber => {
