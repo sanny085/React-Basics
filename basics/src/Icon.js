@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {FaPen, FaTimes, FaRegCircle} from 'react-icons/fa';
 
 const Icon = ({name}) => {

@@ -244,7 +244,7 @@ const cardFilter = (event) => {
     <Paragraph/>
    
     {/*TicTac*/}
-    <TicTac/>
+    <TicTac />
  
 {/*Image Filter*/}
 <br/><br/><br/><br/><br/><br/><br/>
