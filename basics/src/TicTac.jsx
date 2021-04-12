@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 import {Card, CardBody, Container, Button, Col, Row } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -11,9 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './TicTac.css';
 import Icon from './Icon';
 
-
 const TicTac = () => {
-    
     const [isCross, setIsCross] = useState(false);
     const [winMessage, setWinMessage] = useState("");
 
@@ -26,6 +22,7 @@ const TicTac = () => {
     };
 
     const checkIsWinner = () => {
+     
 
     };
     const changeItem = itemNumber => {
@@ -74,8 +71,6 @@ const TicTac = () => {
     </Container>
    </>
   )
+
 }
-
-
 export default TicTac;
-
