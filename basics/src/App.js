@@ -238,13 +238,12 @@ const cardFilter = (event) => {
      </div>
        
    <h1>Netflix Clone</h1>
-   
     {/*component creation*/} 
     <Orderlist/>
     <Paragraph/>
    
     {/*TicTac*/}
-    <TicTac />
+    <TicTac/>
  
 {/*Image Filter*/}
 <br/><br/><br/><br/><br/><br/><br/>
@@ -342,7 +341,9 @@ const cardFilter = (event) => {
                   <div className="col">
                     
                     <input type="text" value={todo} className="inputSty" onChange={todoInput} placeholder="Item" required/>
-                  
+                 
+               
+
           {/* <button type="button"  onClick={todoSubmit} className="todoButton">
             <span className="p-4 rounded-circle">+</span>
           </button> */}
