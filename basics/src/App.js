@@ -231,7 +231,7 @@ const cardFilter = (event) => {
               <button className="btn btn-primary d-block mx-auto m-1" onClick={ () => age<1 ?  alert("Lowest Limit") : setAge(age-1) }>
                 Decrease
               </button>
-              <button className="btn btn-danger d-block mx-auto m-1" onClick={ () => age > 1 ? alert('Really want to Reset ? ') || setAge(0) : "" }>
+              <button className="btn btn-danger d-block mx-auto m-1" onClick={ () => age > 1 ? alert('Really want to Reset ? ') || setAge(0) : " " }>
                 Reset
               </button>
         </div>
