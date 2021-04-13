@@ -53,22 +53,22 @@ const TicTac = () => {
       else if(itemArray[2] === itemArray[4] && itemArray[4] === itemArray[6] && itemArray[2] !== "empty")
         { 
           setWinMessage(`${itemArray[2]} Won`);
-        }
-      
+        } 
+    
   };
 
   const changeItem = itemNumber => {
       if(winMessage){
         return toast(winMessage, {type: 'success'});
       }
-      if(itemArray[itemNumber] === "empty") {
+      else if(itemArray[itemNumber] === "empty") {
         itemArray[itemNumber] = isCross ? "cross" : "circle"
         setIsCross(!isCross)
       }
       else{
         return toast("Already filled", {type: 'error'});
       }
- 
+      
       checkIsWinner();
    };
 
@@ -85,7 +85,6 @@ const TicTac = () => {
                    {winMessage}
                  </h1>
                  <Button color="success" block onClick={reloadGame}>Reload Game 1</Button>
-
                </div>
             ) : (
               <h1 className="text-center text-warning">
@@ -93,16 +92,16 @@ const TicTac = () => {
               </h1>
             ) }
               <div className="grid">
-              { itemArray.map((item,  index) => {
+              { itemArray.map( (item,index) => {
                   return( 
-                    <Card color="warning" className="p-2" onClick={ ()=> changeItem(index)}>
+                    <Card color="warning" className="p-2" onClick={ ()=> changeItem(index) }>
                         <CardBody className="box bg-info">
                             <Icon name={item} className="icon text-light" /> 
                         </CardBody>
                     </Card>
                   )
-                })
-              }
+                } )
+              } 
               </div>
             </Col>
           </Row>
