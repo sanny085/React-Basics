@@ -11,7 +11,5 @@ function mul(a,b){
 function divid(a,b){
     return a/b;
 }
-
- 
 export {add, sub, mul, divid};
 
