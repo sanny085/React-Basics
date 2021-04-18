@@ -161,11 +161,9 @@ const comedyCollect = ()=>{
 const inpuFun1 = (event) => {
   setName1(event.target.value);
 };
-
 const inpuFun2 = (event) => {
   setName2(event.target.value);
 };
-
 const submitData = (event) => {
   //event.prevent will not refresh page before submit form 
   event.preventDefault();
