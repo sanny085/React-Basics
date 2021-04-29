@@ -9,5 +9,4 @@ const ActionMovie =()=> {
     </div>
     );
 }
-
 export default ActionMovie;
